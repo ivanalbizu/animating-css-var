@@ -48,8 +48,6 @@ figure {
   .center,
   .right {
     grid-area: 1 / 1 / 2 / 2;
-  }
-  [data-active='false'] {
     cursor: pointer;
   }
   --pe-1: 0% 0%;
@@ -98,7 +96,6 @@ figure {
     --pi-4-x: 8%;
   }
 }
-
 
 .left {
   clip-path: polygon(

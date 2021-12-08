@@ -3,15 +3,16 @@ window.addEventListener('DOMContentLoaded', () => {
   const imgs = banner.querySelectorAll('[data-active]')
   imgs.forEach(img => {
     img.addEventListener('click', event => {
-      const active = (event.target).closest('[data-active]')
+      const target = (event.target).closest('[data-active]')
 
-      if (active.dataset.active === 'true') return
-
-      const cls = active.className
-      banner.className = `banner ${cls}-active`
-
-      imgs.forEach(img => img.dataset.active = false)
-      img.dataset.active = true
+      if (target.dataset.active === 'true') {
+        imgs.forEach(img => img.dataset.active = false)
+        banner.className = `banner`
+      } else {
+        banner.className = `banner ${target.className}-active`
+        imgs.forEach(img => img.dataset.active = false)
+        img.dataset.active = true
+      }
     })
   })
 })
