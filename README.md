@@ -6,7 +6,7 @@ Sobre la raiz del proyecto, con ParcelJS instalado (Yo tengo instalada la versi�
 parcel index.html
 ```
 
-En la entrada anterior, <a href="https://ivanalbizu.eu/blog/animating-css-vars">Clip-path banner con dat.GUI para debug</a>, definía puntos en sistema de coordenadas mediante variables CSS que asignaba a la propiedad <code>clip-path</code>. En esta entrada quería jugar un poco con eso, para añadirle un poco de gracia y que el cambio de valores tuviera un poco de animación. La solución no es compatible (animación) para Safari y Firefox
+En la entrada anterior, <a href="https://ivanalbizu.eu/blog/clip-path-banner-dat-gui">Clip-path banner con dat.GUI para debug</a>, definía puntos en sistema de coordenadas mediante variables CSS que asignaba a la propiedad <code>clip-path</code>. En esta entrada quería jugar un poco con eso, para añadirle un poco de gracia y que el cambio de valores tuviera un poco de animación. La solución no es compatible (animación) para Safari y Firefox
 
 ## Registro de variables CSS
 
