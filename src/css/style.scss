@@ -1,0 +1,126 @@
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;    
+  display: revert;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+// registry properties (css vars)
+// that will animate
+// not supported by safari and firefox
+@property --pi-1-x {
+  initial-value: 50%;
+  inherits: true;
+  syntax: '<percentage>';
+}
+@property --pi-2-x {
+  initial-value: 80%;
+  inherits: true;
+  syntax: '<percentage>';
+}
+@property --pi-3-x {
+  initial-value: 52%;
+  inherits: true;
+  syntax: '<percentage>';
+}
+@property --pi-4-x {
+  initial-value: 22%;
+  inherits: true;
+  syntax: '<percentage>';
+}
+
+.banner {
+  display: grid;
+  width: 1200px;
+  max-width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+  margin: auto;
+  .left,
+  .center,
+  .right {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  [data-active='false'] {
+    cursor: pointer;
+  }
+  --pe-1: 0% 0%;
+  --pe-2: 100% 0%;
+  --pe-3: 100% 100%;
+  --pe-4: 0% 100%;
+  --g: 10px;
+  --gutter: calc(var(--g) / 2);
+  --pi-1-x: 36%;
+  --pi-2-x: 80%;
+  --pi-3-x: 52%;
+  --pi-4-x: 22%;
+  --pi-1-y: 0%;
+  --pi-2-y: 0%;
+  --pi-3-y: 100%;
+  --pi-4-y: 100%;
+
+  figure {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  transition: 
+    --pi-1-x .5s ease-in-out,
+    --pi-2-x .5s ease-in-out,
+    --pi-3-x .5s ease-in-out,
+    --pi-4-x .5s ease-in-out;
+  &.left-active {
+    --pi-1-x: 82%;
+    --pi-2-x: 93%;
+    --pi-3-x: 90%;
+    --pi-4-x: 80%;
+  }
+  &.center-active {
+    --pi-1-x: 12%;
+    --pi-2-x: 92%;
+    --pi-3-x: 89%;
+    --pi-4-x: 7%;
+  }
+  &.right-active {
+    --pi-1-x: 10%;
+    --pi-2-x: 20%;
+    --pi-3-x: 16%;
+    --pi-4-x: 8%;
+  }
+}
+
+
+.left {
+  clip-path: polygon(
+    var(--pe-1),
+    calc(var(--pi-1-x) - var(--gutter)) var(--pi-1-y),
+    calc(var(--pi-4-x) - var(--gutter)) var(--pi-4-y),
+    var(--pe-4)
+  );
+}
+.center {
+  clip-path: polygon(
+    calc(var(--pi-1-x) + var(--gutter)) var(--pi-1-y),
+    calc(var(--pi-2-x) - var(--gutter)) var(--pi-2-y),
+    calc(var(--pi-3-x) - var(--gutter)) var(--pi-3-y),
+    calc(var(--pi-4-x) + var(--gutter)) var(--pi-4-y)
+  );
+}
+.right {
+  clip-path: polygon(
+    calc(var(--pi-2-x) + var(--gutter)) var(--pi-2-y),
+    var(--pe-2),
+    var(--pe-3),
+    calc(var(--pi-3-x) + var(--gutter)) var(--pi-3-y)
+  );
+}

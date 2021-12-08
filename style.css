@@ -1,0 +1,31 @@
+@property --opacity {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+@property --x {
+  syntax: '<percentage>';
+  initial-value: 10%;
+  inherits: false;
+}
+
+@keyframes fadeIn {
+  50% {
+    /*--opacity: 1;*/
+    --x: 100%;
+  }
+}
+
+main {
+  width: 300px;
+  height: 300px;
+  clip-path: polygon(var(--x) 0%, 0% 100%, 100% 100%);
+  /*background: rgba(0 0 0 / var(--opacity));*/
+  background-color: tomato;
+  /*animation: 2s fadeIn infinite;*/
+  transition: --x 5s;
+}
+
+main:hover {
+  --x: 100%
+}
